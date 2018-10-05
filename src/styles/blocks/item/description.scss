@@ -1,0 +1,10 @@
+.info-item__description {
+    font-size: 1.11rem;
+    color: #333333;
+    text-align: left;
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}

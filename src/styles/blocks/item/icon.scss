@@ -1,0 +1,61 @@
+.info-item__icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.9rem;
+    height: 2.9rem;
+    flex-shrink: 0;
+}
+
+.info-item-icon {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    &__stats {
+        background-image: url('../img/icons/stats.svg');
+    }
+
+    &__key {
+        background-image: url('../img/icons/key.svg'); 
+    }
+
+    &__robot-cleaner {
+        background-image: url('../img/icons/robot-cleaner.svg'); 
+    }
+
+    &__router {
+        background-image: url('../img/icons/router.svg'); 
+    }
+
+    &__ac {
+        background-image: url('../img/icons/ac-white.svg'); 
+    }
+
+    &__thermal {
+        background-image: url('../img/icons/thermal.svg'); 
+    }
+
+    &__music {
+        background-image: url('../img/icons/music.svg'); 
+    }
+
+    &__fridge {
+        background-image: url('../img/icons/fridge.svg'); 
+    }
+
+    &__battery {
+            background-image: url('../img/icons/battery.svg'); 
+        }
+
+    &__cam {
+        background-image: url('../img/icons/cam-white.svg'); 
+    }
+
+    &__kettle {
+        background-image: url('../img/icons/kettle.svg'); 
+    }
+  }
+    

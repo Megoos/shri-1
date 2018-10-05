@@ -1,0 +1,15 @@
+.info-item-interline-container {
+    height: 21px;
+    background-color: #db5341;
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}
+
+.info-item-interline-line {
+    border-radius: 20px 20px 0 0;  
+    background: #fafafa;
+    height: 100%;
+}

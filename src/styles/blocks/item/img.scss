@@ -1,0 +1,22 @@
+.info-item__img-container {
+    position: relative;
+    overflow: hidden;
+    display: none;
+    flex-direction: column;
+    flex-grow: 1;
+    border-radius: 20px;
+    height: 100%;
+    margin-top: 25px;
+
+    &.active {
+        display: flex;
+    }
+}
+
+.info-item__img {
+    display: block;
+    flex-grow: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

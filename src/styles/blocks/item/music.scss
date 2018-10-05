@@ -1,0 +1,44 @@
+.info-item-music {
+    display: none;
+    flex-shrink: 0;
+    margin-top: 1.1rem;
+
+    &.active {
+        display: flex;
+    }
+}
+
+.info-item-music__desc {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.info-item-music__logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-right: 15px;
+}
+
+.info-item-music__logo {
+    width: 100%;
+    height: 100%;
+}
+
+.info-item-music__title {
+    font-size: 20px;
+    color: #000000;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include tablets {
+        font-size: 18px;
+    }
+}

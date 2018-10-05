@@ -1,0 +1,39 @@
+.info-item-main-part {
+    padding: 20px;
+    background: #fafafa;
+    color: #333333;
+
+    &.critical {
+        background-color: #db5341;
+        color: white;
+    }
+}
+
+.info-item__header {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.info-item__title {
+    height: 58px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    font-size: 1.33rem;
+    font-weight: 700;
+    margin: 0 0 0 20px;
+    line-height: 28px;
+}
+
+.info-item-metadata {
+    display: flex;
+    flex-shrink: 0;
+    font-size: 1rem;
+    text-align: left;
+    justify-content: space-between;
+    margin-bottom: 1.3rem;
+    p {
+        margin-top: 1.1rem;
+    }
+}

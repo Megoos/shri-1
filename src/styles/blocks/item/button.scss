@@ -1,0 +1,32 @@
+.info-item-button-container {
+    display: none;
+    flex-direction: row;
+    margin-top: 25px;
+    flex-shrink: 0;
+
+    &.active {
+        display: flex;
+    }
+}
+
+.info-item-button {
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #000000;
+    background: #E5E5E5;
+    width: 132px;
+    height: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 18px;
+
+    &:hover, &:active {
+        background: #ffd93e;
+    }
+
+    @include tablets {
+        height: 44px;
+    }
+}

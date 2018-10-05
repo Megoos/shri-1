@@ -1,0 +1,17 @@
+.info-item-temperature {
+    display: none;
+    flex-shrink: 0;
+    margin-top: 20px;
+    font-size: 1.1rem;
+    &.active {
+        display: flex;
+    }
+}
+
+.info-item-temperature__desc {
+    flex: 1;
+
+    span {
+        font-weight: 700;
+    }
+}
