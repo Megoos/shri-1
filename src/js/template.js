@@ -47,7 +47,9 @@ data.events.forEach(item => {
 
     if (item.data && item.data.image && item.icon === 'cam') {
         content.querySelector('.info-item__img-container').classList.add('active');
-        content.querySelector('.info-item__img').src = './img/image.jpg';
+        content.querySelector('.info-item__img').src = './img/img.png';
+        content.querySelector('.info-item__img').srcset =
+            './img/img@3x.png 336w, ./img/img@2x.png 224w, ./img/img.png 112w';
         content.querySelector('.info-item-camera-control').classList.add('active');
     }
 

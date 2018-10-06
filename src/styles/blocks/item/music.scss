@@ -71,6 +71,7 @@
     height: 1px;
     background-color: #979797;
     outline: none;
+    width: 100%;
 }
 
 .info-item-music__range-slider::-webkit-slider-thumb {
@@ -110,6 +111,10 @@
 
     &_prev {
         margin-right: 25px;
+
+        @include phones {
+            margin-right: 20px;
+        }
     }
 
     &_next {
@@ -124,6 +129,7 @@
     outline: none;
     background: rgba(216, 216, 216, 0.3);
     border-radius: 2px;
+    width: 100%;
 }
 
 .info-item-music__range-volume::-webkit-slider-thumb {
