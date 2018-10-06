@@ -1,21 +1,15 @@
-.info-item-temperature {
+.info-item-camera-control {
     display: none;
     flex-shrink: 0;
     margin-top: 20px;
     font-size: 18px;
+    justify-content: space-between;
+
     &.active {
         display: flex;
     }
 
     @include tablets {
         font-size: 14px;
-    }
-}
-
-.info-item-temperature__desc {
-    flex: 1;
-
-    span {
-        font-weight: 700;
     }
 }

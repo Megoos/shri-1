@@ -39,9 +39,10 @@ data.events.forEach(item => {
         content.querySelector('.info-item__img').src = './img/Richdata.svg';
     }
 
-    if (item.data && item.data.image) {
+    if (item.data && item.data.image && item.icon === 'cam') {
         content.querySelector('.info-item__img-container').classList.add('active');
         content.querySelector('.info-item__img').src = './img/image.jpg';
+        content.querySelector('.info-item-camera-control').classList.add('active');
     }
     
     if (item.data && item.data.buttons) {
@@ -59,6 +60,9 @@ data.events.forEach(item => {
         content.querySelector('.info-item-music').classList.add('active');
         content.querySelector('.info-item-music__logo').src = item.data.albumcover;
         content.querySelector('.info-item-music__title').textContent = item.data.artist + ' - ' + item.data.track.name;
+        content.querySelector('.info-item-music__time').textContent = item.data.track.length;
+        content.querySelector('.info-item-music__volume').textContent = item.data.volume + '%';
+        
     }
 
     container.appendChild(document.importNode(content, true));

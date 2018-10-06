@@ -57,5 +57,14 @@
     &__kettle {
         background-image: url('../img/icons/kettle.svg'); 
     }
+
+    &__next {
+        background-image: url('../img/icons/Prev.svg');
+        transform: rotate(180deg);
+    }
+
+    &__prev {
+        background-image: url('../img/icons/Prev.svg'); 
+    }
   }
     

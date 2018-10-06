@@ -4,6 +4,7 @@
     // grid-auto-rows: minmax(min-content, 1fr);
     grid-gap: 20px;
     padding: 50px;
+    padding-bottom: 25px;
     flex: 1;
 
     @include tablets {
@@ -29,7 +30,6 @@
     flex-direction: column;
 
     div:last-child {
-        //margin-top: auto;
         margin-bottom: 0;
     }
 
@@ -62,7 +62,11 @@
         grid-row: auto / span 3;
 
         .info-item__description {
-            font-size: 1.33rem;
+            font-size: 24px;
+
+            @include tablets {
+                font-size: 18px;
+            }
         }
 
         @include tablets {
@@ -70,7 +74,7 @@
         }
     }
 
-    &:hover {
+    &:hover, &:active {
         .info-item-main-part:not(.critical),
         .info-item-add-info,
         .info-item-interline-line {
@@ -89,9 +93,9 @@
     padding-top: 0px;
     display: none;
     flex-direction: column;
-    flex: 1;
+    flex: 1000;
     justify-content: space-between;
-
+    
     &.active {
         display: flex;
     }

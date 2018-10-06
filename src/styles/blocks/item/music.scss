@@ -2,6 +2,7 @@
     display: none;
     flex-shrink: 0;
     margin-top: 1.1rem;
+    flex-direction: column;
 
     &.active {
         display: flex;
@@ -41,4 +42,102 @@
     @include tablets {
         font-size: 18px;
     }
+}
+
+.info-item-music_bar {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.info-item-music__range {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.info-item-music__time, .info-item-music__volume {
+    color: rgba(161, 161, 161, 0.84);
+    font-size: 14px;
+    margin-left: 15px;
+}
+
+.info-item-music__range-slider {
+    flex: 1;
+    appearance: none;
+    height: 1px;
+    background-color: #979797;
+    outline: none;
+}
+
+.info-item-music__range-slider::-webkit-slider-thumb {
+    appearance: none;
+    background: #d8d8d8;
+    border-radius: 4.5px;
+    width: 10px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.info-item-music__range-slider::-moz-range-thumb {
+    background: #d8d8d8;
+    border-radius: 4.5px;
+    width: 10px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.info-item-music__control {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.info-item-music__control-buttons {
+    display: flex;
+}
+
+.info-item-music__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+
+    &_prev {
+        margin-right: 25px;
+    }
+
+    &_next {
+        margin-right: 6px;
+    }
+}
+
+.info-item-music__range-volume {
+    flex: 1;
+    appearance: none;
+    height: 4px;
+    outline: none;
+    background: rgba(216, 216, 216, 0.3);
+    border-radius: 2px;
+}
+
+.info-item-music__range-volume::-webkit-slider-thumb {
+    appearance: none;
+    background: #605757;
+    border-radius: 26px;
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+}
+
+.info-item-music__range-volume::-moz-range-thumb {
+    background: #605757;
+    border-radius: 26px;
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
 }

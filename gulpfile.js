@@ -71,6 +71,12 @@ gulp.task('img', () => {
     .pipe(reload({ stream: true }))
 });
 
+gulp.task('files', () => {
+  gulp
+    .src('src/files/**/*')
+    .pipe(gulp.dest('./dist/files'))
+});
+
 gulp.task('clean', () => del(['dist']));
 
-gulp.task('default', ['sass', 'html', 'js', 'img', 'server', 'watch']);
+gulp.task('default', ['sass', 'html', 'js', 'img', 'files', 'server', 'watch']);

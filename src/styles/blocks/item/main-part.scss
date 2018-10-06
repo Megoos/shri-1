@@ -2,6 +2,10 @@
     padding: 20px;
     background: #fafafa;
     color: #333333;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: auto;
 
     &.critical {
         background-color: #db5341;
@@ -20,10 +24,14 @@
     display: flex;
     align-items: center;
     overflow: hidden;
-    font-size: 1.33rem;
+    font-size: 24px;
     font-weight: 700;
     margin: 0 0 0 20px;
     line-height: 28px;
+
+    @include tablets {
+        font-size: 14px;
+    }
 }
 
 .info-item-metadata {
@@ -32,8 +40,8 @@
     font-size: 1rem;
     text-align: left;
     justify-content: space-between;
-    margin-bottom: 1.3rem;
+    margin-bottom: 25px;
     p {
-        margin-top: 1.1rem;
+        margin-top: 25px;
     }
 }

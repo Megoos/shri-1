@@ -44,7 +44,7 @@
           <a class="footer__link__item" href="#">Помощь</a>
           <a class="footer__link__item" href="#">Обратная связь</a>
           <a class="footer__link__item" href="#">Разработчикам</a>
-          <a class="footer__link__item" href="#">Условия использования</a>
+          <a class="footer__link__item" href="./files/license.pdf">Условия использования</a>
         </div>
         <p class="footer__text">© 2001–2018 ООО «Яндекс»</p>
       </footer>
@@ -72,6 +72,10 @@
           <div class="info-item__img-container">
             <img src="" alt="" class="info-item__img">
           </div>
+          <div class="info-item-camera-control">
+              <span class="info-item-camera-control__desc">Приблежение: <span class="info-item-camera-control-zoom">78%</span></span>
+              <span class="info-item-camera-control__desc">Яркость: <span class="info-item-camera-control-bright">54%</span></span>
+            </div>
           <div class="info-item-temperature">
             <span class="info-item-temperature__desc">Температура: <span class="info-item-temperature-temp"></span></span>
             <span class="info-item-temperature__desc">Влажность: <span class="info-item-temperature-wet"></span></span>
@@ -81,11 +85,32 @@
           <div class="info-item-music">
             <div class="info-item-music__desc">
               <div class="info-item-music__logo-container">
-                <img class="info-item-music__logo" src=""
-                  alt="" />
+                <img class="info-item-music__logo" src="" alt="" />
               </div>
-              <div class="info-item-music__title">
+              <div class="info-item-music_bar">
+                <div class="info-item-music__title">
+                </div>
+                <div class="info-item-music__range">
+                  <input type="range" min="0" max="100" value="23" class="info-item-music__range-slider">
+                  <p class="info-item-music__time"></p>
+                </div>
               </div>
+
+            </div>
+            <div class="info-item-music__control">
+              <div class="info-item-music__control-buttons">
+                <div class="info-item-music__button info-item-music__button_prev">
+                  <span class="info-item-icon info-item-icon__prev"></span>
+                </div>
+                <div class="info-item-music__button info-item-music__button_next">
+                  <span class="info-item-icon info-item-icon__next"></span>
+                </div>
+              </div>
+              <div class="info-item-music__range">
+                <input type="range" min="0" max="100" value="80" class="info-item-music__range-volume">
+                <p class="info-item-music__volume"></p>
+              </div>
+
             </div>
           </div>
         </div>
@@ -112,8 +137,6 @@
         </ul>
       </div>
     </div>
-
-
 
     <script async src="js/events.js"></script>
     <script async src="js/template.js"></script>
