@@ -16,6 +16,7 @@ data.events.forEach(item => {
     if (item.type === 'critical') {
         content.querySelector('.info-item-main-part').classList.add('critical');
         content.querySelector('.info-item-icon').classList.add('critical');
+        content.querySelector('.info-item-icon__cross').classList.add('white');
     }
 
     if (item.data || item.description) {

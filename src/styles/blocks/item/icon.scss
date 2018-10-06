@@ -8,6 +8,7 @@
 
     @include tablets {
         height: 35px;
+        width: 35px;
     }
 }
 
@@ -18,7 +19,7 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    fill: #333;
+    fill: $main;
 
     &__next {
         background-image: url('../img/icons/Prev.svg');
@@ -27,6 +28,14 @@
 
     &__prev {
         background-image: url('../img/icons/Prev.svg'); 
+    }
+
+    &__cross {
+        background-image: url('../img/icons/cross.svg');
+
+        &.white {
+            background-image: url('../img/icons/cross-white.svg');
+        }
     }
 
     &.critical {

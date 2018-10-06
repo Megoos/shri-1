@@ -7,7 +7,7 @@
     &.active {
         display: flex;
     }
-    
+
     @include tablets {
         height: 44px;
     }
@@ -18,7 +18,7 @@
     font-size: 20px;
     font-weight: 700;
     color: #000000;
-    background: #E5E5E5;
+    background: #e5e5e5;
     width: 132px;
     height: 54px;
     display: flex;
@@ -26,12 +26,28 @@
     align-items: center;
     margin-right: 18px;
 
-    &:hover, &:active {
-        background: #ffd93e;
+    &:hover,
+    &:active {
+        background: $yellow;
     }
 
     @include tablets {
         height: 44px;
     }
+}
 
+.info-item-music__button__cross {
+    display: none;
+    position: absolute;
+    right: 14px;
+    top: 12px;
+
+    @include tablets {
+        display: none;
+    }
+}
+
+.info-item-music__button__cross {
+    height: 14px;
+    width: 14px;
 }

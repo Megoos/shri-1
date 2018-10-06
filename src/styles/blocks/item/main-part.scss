@@ -1,14 +1,14 @@
 .info-item-main-part {
     padding: 20px;
-    background: #fafafa;
-    color: #333333;
+    background: $itemColor;
+    color: $main;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     flex: auto;
 
     &.critical {
-        background-color: #db5341;
+        background-color: $red;
         color: white;
     }
 }
