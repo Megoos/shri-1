@@ -6,14 +6,16 @@ data.events.forEach(item => {
 
     content.querySelector('.info-item').classList.add(`info-item__${item.size}`);
     content.querySelector('.info-item__title').textContent = item.title;
+
     content
-        .querySelector('.info-item-icon')
-        .classList.add(`info-item-icon__${item.icon}${item.type === 'critical' ? '-white' : ''}`);
+        .querySelector('.info-item-icon-use')
+        .setAttributeNS('http://www.w3.org/1999/xlink', 'href', `./img/sprite.svg#${item.icon}`);
     content.querySelector('.info-item-metadata__desc').textContent = item.source;
     content.querySelector('.info-item-metadata__date').textContent = item.time;
 
     if (item.type === 'critical') {
         content.querySelector('.info-item-main-part').classList.add('critical');
+        content.querySelector('.info-item-icon').classList.add('critical');
     }
 
     if (item.data || item.description) {
