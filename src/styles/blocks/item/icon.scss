@@ -31,6 +31,10 @@
     }
 
     &__ac {
+        background-image: url('../img/icons/ac.svg'); 
+    }
+
+    &__ac-white {
         background-image: url('../img/icons/ac-white.svg'); 
     }
 
@@ -51,7 +55,11 @@
         }
 
     &__cam {
-        background-image: url('../img/icons/cam-white.svg'); 
+        background-image: url('../img/icons/cam.svg'); 
+    }
+
+    &__cam-white {
+        background-image: url('../img/icons/cam.svg'); 
     }
 
     &__kettle {

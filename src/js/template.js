@@ -6,7 +6,9 @@ data.events.forEach(item => {
 
     content.querySelector('.info-item').classList.add(`info-item__${item.size}`);
     content.querySelector('.info-item__title').textContent = item.title;
-    content.querySelector('.info-item-icon').classList.add(`info-item-icon__${item.icon}`);
+    content
+        .querySelector('.info-item-icon')
+        .classList.add(`info-item-icon__${item.icon}${item.type === 'critical' ? '-white' : ''}`);
     content.querySelector('.info-item-metadata__desc').textContent = item.source;
     content.querySelector('.info-item-metadata__date').textContent = item.time;
 
@@ -29,7 +31,8 @@ data.events.forEach(item => {
 
     if (item.data && item.data.temperature && item.data.humidity) {
         content.querySelector('.info-item-temperature').classList.add('active');
-        content.querySelector('.info-item-temperature-temp').textContent = item.data.temperature + ' C';
+        content.querySelector('.info-item-temperature-temp').textContent =
+            item.data.temperature + ' C';
         content.querySelector('.info-item-temperature-wet').textContent = item.data.humidity + '%';
     }
 
@@ -44,7 +47,7 @@ data.events.forEach(item => {
         content.querySelector('.info-item__img').src = './img/image.jpg';
         content.querySelector('.info-item-camera-control').classList.add('active');
     }
-    
+
     if (item.data && item.data.buttons) {
         content.querySelector('.info-item-button-container').classList.add('active');
         item.data.buttons.forEach(el => {
@@ -53,16 +56,16 @@ data.events.forEach(item => {
             newA.setAttribute('href', '#');
             newA.textContent = el;
             content.querySelector('.info-item-button-container').appendChild(newA);
-        })
+        });
     }
 
     if (item.data && item.data.track) {
         content.querySelector('.info-item-music').classList.add('active');
         content.querySelector('.info-item-music__logo').src = item.data.albumcover;
-        content.querySelector('.info-item-music__title').textContent = item.data.artist + ' - ' + item.data.track.name;
+        content.querySelector('.info-item-music__title').textContent =
+            item.data.artist + ' - ' + item.data.track.name;
         content.querySelector('.info-item-music__time').textContent = item.data.track.length;
         content.querySelector('.info-item-music__volume').textContent = item.data.volume + '%';
-        
     }
 
     container.appendChild(document.importNode(content, true));
