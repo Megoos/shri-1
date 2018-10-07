@@ -60,7 +60,7 @@ const createCameraControl = (zoom = '', bright = '') => {
         create(
             'span',
             { class: 'info-item-camera-control__desc' },
-            'Приблежение: ',
+            'Приближение: ',
             create('span', { class: 'info-item-camera-control-zoom' }, zoom)
         ),
         create(
