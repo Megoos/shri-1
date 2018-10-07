@@ -37,6 +37,7 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    transition: background-color 0.2s ease;
 
     div:last-child {
         margin-bottom: 0;
@@ -83,7 +84,8 @@
         }
     }
 
-    &:hover, &:active {
+    &:hover,
+    &:active {
         .info-item-main-part:not(.critical),
         .info-item-add-info,
         .info-item-interline-line {
@@ -112,5 +114,5 @@
     flex-direction: column;
     flex: 1000;
     justify-content: space-between;
-
+    transition: background-color 0.2s ease;
 }

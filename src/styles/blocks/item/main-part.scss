@@ -6,6 +6,7 @@
     flex-direction: column;
     justify-content: space-between;
     flex: auto;
+    transition: background-color .2s ease;
 
     &.critical {
         background-color: $red;
