@@ -1,11 +1,6 @@
 .info-item-interline-container {
     height: 21px;
     background-color: $red;
-    display: none;
-
-    &.active {
-        display: block;
-    }
 }
 
 .info-item-interline-line {

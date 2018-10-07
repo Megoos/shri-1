@@ -1,13 +1,10 @@
 .info-item__description {
     font-size: 20px;
     color: $main;
-    text-align: left;
-    display: none;
     margin: auto 0;
-
-    &.active {
-        display: block;
-    }
+    display: flex;
+    align-items: center;
+    flex: 1;
 
     @include tablets {
         font-size: 18px;

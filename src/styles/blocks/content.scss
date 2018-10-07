@@ -94,7 +94,7 @@
         border-radius: 20px;
         cursor: pointer;
 
-        .info-item-music__button__cross {
+        .info-item-button-cross {
             display: block;
 
             @include tablets {
@@ -108,12 +108,9 @@
     background: $itemColor;
     padding: 20px;
     padding-top: 0px;
-    display: none;
+    display: flex;
     flex-direction: column;
     flex: 1000;
     justify-content: space-between;
-    
-    &.active {
-        display: flex;
-    }
+
 }

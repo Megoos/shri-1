@@ -1,16 +1,11 @@
 .info-item__img-container {
     position: relative;
     overflow: hidden;
-    display: none;
+    display: flex;
     flex-direction: column;
     flex-grow: 1;
     border-radius: 20px;
-    height: 100%;
     margin-top: 25px;
-
-    &.active {
-        display: flex;
-    }
 }
 
 .info-item__img {

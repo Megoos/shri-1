@@ -1,7 +1,175 @@
 const t = document.querySelector('.info-item-template');
 const container = document.querySelector('.content');
 
+// общая функция для генерации компонентов
+function create(name, attributes) {
+    var el = document.createElement(name);
+    if (typeof attributes == 'object') {
+        for (var i in attributes) {
+            el.setAttribute(i, attributes[i]);
+
+            if (i.toLowerCase() == 'class') {
+                el.className = attributes[i]; // for IE compatibility
+            } else if (i.toLowerCase() == 'style') {
+                el.style.cssText = attributes[i]; // for IE compatibility
+            }
+        }
+    }
+    for (var i = 2; i < arguments.length; i++) {
+        var val = arguments[i];
+        if (typeof val == 'string') {
+            val = document.createTextNode(val);
+        }
+        el.appendChild(val);
+    }
+    return el;
+}
+
+// далее идут отдельный функции для создание элементов
+const createDescription = desc => {
+    return create('div', { class: 'info-item__description' }, desc);
+};
+
+const createInterline = () => {
+    return create(
+        'div',
+        { class: 'info-item-interline-container' },
+        create('div', { class: 'info-item-interline-line' })
+    );
+};
+
+const createImg = (src, srcset = '') => {
+    const div = create(
+        'div',
+        { class: 'info-item__img-container' },
+        create('img', {
+            class: 'info-item__img',
+            sizes: '(min-width: 1140px) 336px, (min-width: 768px) 224px, 112px',
+            src: src,
+            srcset: srcset
+        })
+    );
+
+    return div;
+};
+
+const createCameraControl = (zoom = '', bright = '') => {
+    return create(
+        'div',
+        { class: 'info-item-camera-control' },
+        create(
+            'span',
+            { class: 'info-item-camera-control__desc' },
+            'Приблежение: ',
+            create('span', { class: 'info-item-camera-control-zoom' }, zoom)
+        ),
+        create(
+            'span',
+            { class: 'info-item-camera-control__desc' },
+            'Яркость: ',
+            create('span', { class: 'info-item-camera-control-bright' }, bright)
+        )
+    );
+};
+
+const createTempAndHum = (temperature = '', humidity = '') => {
+    return create(
+        'div',
+        { class: 'info-item-temperature' },
+        create(
+            'span',
+            { class: 'info-item-temperature__desc' },
+            'Температру: ',
+            create('span', { class: 'info-item-temperature-temp' }, temperature + ' C')
+        ),
+        create(
+            'span',
+            { class: 'info-item-temperature__desc' },
+            'Влажность: ',
+            create('span', { class: 'info-item-temperature-wet' }, humidity + '%')
+        )
+    );
+};
+
+const createButtons = buttons => {
+    const div = create('div', { class: 'info-item-button-container' });
+
+    buttons.forEach(el => {
+        const newA = create('a', { class: 'info-item-button', href: '#' }, el);
+        div.appendChild(newA);
+    });
+
+    return div;
+};
+
+const createMusicBlock = (logo, name, time, volume) => {
+    const logoBlock = create(
+        'div',
+        { class: 'info-item-music__logo-container' },
+        create('img', { class: 'info-item-music__logo', src: logo, alt: '' })
+    );
+
+    const infoBlock = create(
+        'div',
+        { class: 'info-item-music_bar' },
+        create('div', { class: 'info-item-music__title' }, name),
+        create(
+            'div',
+            { class: 'info-item-music__range' },
+            create('input', {
+                type: 'range',
+                min: '0',
+                max: '100',
+                value: '23',
+                class: 'info-item-music__range-slider'
+            }),
+            create('p', { class: 'info-item-music__time' }, time)
+        )
+    );
+
+    const volumeBlock = create(
+        'div',
+        { class: 'info-item-music__range' },
+        create('input', {
+            type: 'range',
+            min: '0',
+            max: '100',
+            value: '80',
+            class: 'info-item-music__range-volume'
+        }),
+        create('p', { class: 'info-item-music__volume' }, volume)
+    );
+
+    const controlBlock = create(
+        'div',
+        { class: 'info-item-music__control-buttons' },
+        create(
+            'div',
+            { class: 'info-item-music__button info-item-music__button_prev' },
+            create('span', { class: 'info-item-icon info-item-icon__prev' })
+        ),
+        create(
+            'div',
+            { class: 'info-item-music__button info-item-music__button_next' },
+            create('span', { class: 'info-item-icon info-item-icon__next' })
+        ),
+        volumeBlock
+    );
+
+    const div = create(
+        'div',
+        { class: 'info-item-music' },
+        create('div', { class: 'info-item-music__desc' }, logoBlock, infoBlock),
+        create('div', { class: 'info-item-music__control' }, controlBlock)
+    );
+
+    return div;
+};
+// - - -
+
+// Шаблонизация исходных данных
 data.events.forEach(item => {
+    var addInfo;
     const content = t.cloneNode(true).content;
 
     content.querySelector('.info-item').classList.add(`info-item__${item.size}`);
@@ -20,57 +188,51 @@ data.events.forEach(item => {
     }
 
     if (item.data || item.description) {
-        content.querySelector('.info-item-add-info').classList.add('active');
-
         if (item.type === 'critical') {
-            content.querySelector('.info-item-interline-container').classList.add('active');
+            content.querySelector('.info-item').appendChild(createInterline());
         }
+
+        addInfo = create('div', { class: 'info-item-add-info' });
+        content.querySelector('.info-item').appendChild(addInfo);
     }
 
     if (item.description) {
-        content.querySelector('.info-item__description').classList.add('active');
-        content.querySelector('.info-item__description').textContent = item.description;
+        addInfo.appendChild(createDescription(item.description));
     }
 
     if (item.data && item.data.temperature && item.data.humidity) {
-        content.querySelector('.info-item-temperature').classList.add('active');
-        content.querySelector('.info-item-temperature-temp').textContent =
-            item.data.temperature + ' C';
-        content.querySelector('.info-item-temperature-wet').textContent = item.data.humidity + '%';
+        addInfo.appendChild(createTempAndHum(item.data.temperature, item.data.humidity));
     }
 
     if (item.data && item.data.type === 'graph') {
         // TODO: отрисовывать график
-        content.querySelector('.info-item__img-container').classList.add('active');
-        content.querySelector('.info-item__img').src = './img/Richdata.svg';
+        addInfo.appendChild(createImg('./img/Richdata.svg'));
     }
 
     if (item.data && item.data.image && item.icon === 'cam') {
-        content.querySelector('.info-item__img-container').classList.add('active');
-        content.querySelector('.info-item__img').src = './img/img.png';
-        content.querySelector('.info-item__img').srcset =
-            './img/img@3x.png 336w, ./img/img@2x.png 224w, ./img/img.png 112w';
-        content.querySelector('.info-item-camera-control').classList.add('active');
+        addInfo.appendChild(
+            createImg(
+                './img/img.png',
+                './img/img@3x.png 336w, ./img/img@2x.png 224w, ./img/img.png 112w'
+            )
+        );
+
+        addInfo.appendChild(createCameraControl('54%', '80%'));
     }
 
     if (item.data && item.data.buttons) {
-        content.querySelector('.info-item-button-container').classList.add('active');
-        item.data.buttons.forEach(el => {
-            const newA = document.createElement('A');
-            newA.setAttribute('class', 'info-item-button');
-            newA.setAttribute('href', '#');
-            newA.textContent = el;
-            content.querySelector('.info-item-button-container').appendChild(newA);
-        });
+        addInfo.appendChild(createButtons(item.data.buttons));
     }
 
     if (item.data && item.data.track) {
-        content.querySelector('.info-item-music').classList.add('active');
-        content.querySelector('.info-item-music__logo').src = item.data.albumcover;
-        content.querySelector('.info-item-music__title').textContent =
-            item.data.artist + ' - ' + item.data.track.name;
-        content.querySelector('.info-item-music__time').textContent = item.data.track.length;
-        content.querySelector('.info-item-music__volume').textContent = item.data.volume + '%';
+        addInfo.appendChild(
+            createMusicBlock(
+                item.data.albumcover,
+                item.data.artist + ' - ' + item.data.track.name,
+                item.data.track.length,
+                item.data.volume + '%'
+            )
+        );
     }
 
     container.appendChild(document.importNode(content, true));

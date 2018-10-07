@@ -1,12 +1,8 @@
 .info-item-button-container {
-    display: none;
+    display: flex;
     flex-direction: row;
     margin-top: 25px;
     flex-shrink: 0;
-
-    &.active {
-        display: flex;
-    }
 
     @include tablets {
         height: 44px;
@@ -36,7 +32,7 @@
     }
 }
 
-.info-item-music__button__cross {
+.info-item-button-cross {
     display: none;
     position: absolute;
     right: 14px;
@@ -47,7 +43,7 @@
     }
 }
 
-.info-item-music__button__cross {
+.info-item-button-cross {
     height: 14px;
     width: 14px;
 }
